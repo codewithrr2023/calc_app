@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="C:\Users\singhr146\OneDrive - Vodafone Group\Desktop\style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <input type="text"class=text>
+        <div class="wrapper">
+            <div class="row">
+                <button class="clear">C</button>
+                <button class="equal">=</button>
+                <button class="slice">←</button>
+                <button class="plus numberbtn">+</button>
+            </div>
+            <div class="row">
+                <button class="seven numberbtn">7</button>
+                <button class="eight numberbtn">8</button>
+                <button class="nine numberbtn">9</button>
+                <button class="minus numberbtn">-</button>
+            </div>
+            <div class="row">
+                <button class="four numberbtn">4</button>
+                <button class="five numberbtn">5</button>
+                <button class="six numberbtn">6</button>
+                <button class="divide numberbtn">/</button>
+            </div>
+            <div class="row">
+                <button class="one numberbtn">1</button>
+                <button class="two numberbtn">2</button>
+                <button class="three numberbtn">3</button>
+                <button class="mult numberbtn">*</button>
+            </div>
+            <div class="row">
+                <button class="mult numberbtn">00</button>
+                <button class="one numberbtn">0</button>
+                <button class="decimal numberbtn">.</button>
+                <button class="two numberbtn">%</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const text=document.querySelector(".text");
+        const result=document.querySelectorAll(".result");
+        console.log(result)
+        const equal=document.querySelector(".equal")
+        const numberbtn=document.querySelectorAll(".numberbtn");
+        console.log(numberbtn)
+
+        const slice=document.querySelector(".slice");
+        console.log(slice)
+
+        const clear=document.querySelector(".clear");
+
+        for(let i=0;i<numberbtn.length;i++){
+            numberbtn[i].addEventListener("click",function(){   
+                text.value+=numberbtn[i].innerHTML;
+            })
+        }
+
+
+        slice.addEventListener("click",function(){
+            text.value=text.value.slice(0,-1);
+            console.log("slice")
+        })
+
+
+        clear.addEventListener("click",function(){
+            text.value="";
+        })
+        
+        equal.addEventListener("click",function(){
+            const exp=text.value;
+            try{
+                text.value=eval(exp);
+                console.log(text.value);
+            }
+            catch(error){
+                alert('Invalid expression');
+            }
+        })
+    </script>
+</body>
+</html>
